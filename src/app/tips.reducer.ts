@@ -1,3 +1,11 @@
+import { spyTips } from './database/spy-mock';
+import { sniperTips } from './database/sniper-mock';
+import { medicTips } from './database/medic-mock';
+import { engineerTips } from './database/engineer-mock';
+import { heavyTips } from './database/heavy-mock';
+import { demomanTips } from './database/demoman-mock';
+import { pyroTips } from './database/pyro-mock';
+import { soldierTips } from './database/soldier-mock';
 import { scoutTips } from './database/scout-mock';
 import { Action } from "@ngrx/store";
 
@@ -15,28 +23,28 @@ export function tipsReducer(state: string = 'Choose class', action: Action){
       return state = scoutTips[generateRandomNumber(scoutTips.length)];
 
     case 'Soldier':
-      return state = tips[0];
+      return state = soldierTips[generateRandomNumber(soldierTips.length)];
 
     case 'Pyro':
-      return state = tips[0];
+      return state = pyroTips[generateRandomNumber(pyroTips.length)];
 
     case 'Demoman':
-      return state = tips[0];
+      return state = demomanTips[generateRandomNumber(demomanTips.length)];
 
     case 'Heavy':
-      return state = tips[0];
+      return state = heavyTips[generateRandomNumber(heavyTips.length)];
 
     case 'Engineer':
-      return state = tips[0];
+      return state = engineerTips[generateRandomNumber(engineerTips.length)];
 
     case 'Medic':
-      return state = tips[0];
+      return state = medicTips[generateRandomNumber(medicTips.length)];
 
     case 'Sniper':
-      return state = tips[0];
+      return state = sniperTips[generateRandomNumber(sniperTips.length)];
 
     case 'Spy':
-      return state = tips[0];
+      return state = spyTips[generateRandomNumber(spyTips.length)];
 
     default:
       return state;
