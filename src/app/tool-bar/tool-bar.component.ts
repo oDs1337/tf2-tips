@@ -18,9 +18,30 @@ export class ToolBarComponent implements OnInit {
   scoutTip(): void{
     this.store.dispatch({ type: 'Scout'});
   }
-
   soldierTip(): void{
     this.store.dispatch({ type: 'Soldier'});
   }
+  pyroTip(): void{
+    this.store.dispatch({ type: 'Pyro'});
+  }
+  demomanTip(): void{
+    this.store.dispatch({ type: 'Demoman'});
+  }
+  heavyTip(): void{
+    this.store.dispatch({ type: 'Heavy'});
+  }
+  engineerTip(): void{
+    this.store.dispatch({ type: 'Engineer'});
+  }
+  medicTip(): void{
+    this.store.dispatch({ type: 'Medic'});
+  }
+  sniperTip(): void{
+    this.store.dispatch({ type: 'Sniper'});
+  }
+  spyTip(): void{
+    this.store.dispatch({ type: 'Spy'});
+  }
+
 
 }
