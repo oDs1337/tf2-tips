@@ -15,12 +15,12 @@ export class ToolBarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  englishTip(): void{
-    this.store.dispatch({ type: 'ENGLISH'});
+  scoutTip(): void{
+    this.store.dispatch({ type: 'Scout'});
   }
 
-  polishTip(): void{
-    this.store.dispatch({ type: 'POLISH'});
+  soldierTip(): void{
+    this.store.dispatch({ type: 'Soldier'});
   }
 
 }
