@@ -14,7 +14,7 @@ export class RandomTipComponent implements OnInit {
 
   tip$?: Observable<string>;
 
-  currentCharacter: any;
+  currentCharacter?: any
 
   constructor(private store: Store<Character>) {
     this.store.select('tip').subscribe(tip => {

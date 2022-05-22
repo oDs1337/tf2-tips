@@ -20,7 +20,6 @@ export function tipsReducer(state: Character = { name: '', tip: '' }, action: Ac
 
   switch (action.type) {
     case 'Scout':
-      //return state = scoutTips[generateRandomNumber(scoutTips.length)];
       return state = { name: 'Scout', tip: scoutTips[generateRandomNumber(scoutTips.length)] }
 
     case 'Soldier':
