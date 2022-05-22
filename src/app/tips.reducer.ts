@@ -8,9 +8,9 @@ import { pyroTips } from './database/pyro-mock';
 import { soldierTips } from './database/soldier-mock';
 import { scoutTips } from './database/scout-mock';
 import { Action } from "@ngrx/store";
+import { Character } from './character';
 
-export function tipsReducer(state: string = 'Choose class', action: Action){
-  console.log(action.type, state);
+export function tipsReducer(state: Character = { name: '', tip: '' }, action: Action){
 
   function generateRandomNumber(arrayLength: number): number{
     const min = Math.ceil(0);
@@ -20,31 +20,32 @@ export function tipsReducer(state: string = 'Choose class', action: Action){
 
   switch (action.type) {
     case 'Scout':
-      return state = scoutTips[generateRandomNumber(scoutTips.length)];
+      //return state = scoutTips[generateRandomNumber(scoutTips.length)];
+      return state = { name: 'Scout', tip: scoutTips[generateRandomNumber(scoutTips.length)] }
 
     case 'Soldier':
-      return state = soldierTips[generateRandomNumber(soldierTips.length)];
+      return state = { name: 'Soldier', tip: soldierTips[generateRandomNumber(soldierTips.length)] }
 
     case 'Pyro':
-      return state = pyroTips[generateRandomNumber(pyroTips.length)];
+      return state = { name: 'Pyro', tip: pyroTips[generateRandomNumber(pyroTips.length)] }
 
     case 'Demoman':
-      return state = demomanTips[generateRandomNumber(demomanTips.length)];
+      return state = { name: 'Demoman', tip: demomanTips[generateRandomNumber(demomanTips.length)] }
 
     case 'Heavy':
-      return state = heavyTips[generateRandomNumber(heavyTips.length)];
+      return state = { name: 'Heavy', tip: heavyTips[generateRandomNumber(heavyTips.length)] }
 
     case 'Engineer':
-      return state = engineerTips[generateRandomNumber(engineerTips.length)];
+      return state = { name: 'Engineer', tip: engineerTips[generateRandomNumber(engineerTips.length)] }
 
     case 'Medic':
-      return state = medicTips[generateRandomNumber(medicTips.length)];
+      return state = { name: 'Medic', tip: medicTips[generateRandomNumber(medicTips.length)] }
 
     case 'Sniper':
-      return state = sniperTips[generateRandomNumber(sniperTips.length)];
+      return state = { name: 'Sniper', tip: sniperTips[generateRandomNumber(sniperTips.length)] }
 
     case 'Spy':
-      return state = spyTips[generateRandomNumber(spyTips.length)];
+      return state = { name: 'Spy', tip: spyTips[generateRandomNumber(spyTips.length)] }
 
     default:
       return state;

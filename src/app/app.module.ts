@@ -13,7 +13,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { RandomTipComponent } from './random-tip/random-tip.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
