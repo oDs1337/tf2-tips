@@ -1,4 +1,7 @@
+import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
+import { AppState } from '../AppState';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-random-tip',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RandomTipComponent implements OnInit {
 
-  constructor() { }
+  tip$?: Observable<string>;
+
+  constructor(private store: Store<AppState>) {
+    this.tip$ = this.store.select('tip');
+   }
 
   ngOnInit(): void {
   }
+
+
 
 }

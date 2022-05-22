@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { StoreModule } from '@ngrx/store';
+import { tipsReducer } from './tips.reducer';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +27,8 @@ import { RandomTipComponent } from './random-tip/random-tip.component';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
+    StoreModule.forRoot({
+      tip: tipsReducer })
   ],
   providers: [],
   bootstrap: [AppComponent]

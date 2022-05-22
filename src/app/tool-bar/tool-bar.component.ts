@@ -1,4 +1,7 @@
+import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
+import { AppState } from '../AppState';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-tool-bar',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToolBarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
+  }
+
+  englishTip(): void{
+    this.store.dispatch({ type: 'ENGLISH'});
+  }
+
+  polishTip(): void{
+    this.store.dispatch({ type: 'POLISH'});
   }
 
 }
