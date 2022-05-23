@@ -1,15 +1,17 @@
-<ng-container *ngIf="tip$">
+
   <div class="tip">
     <div class="tip_classImage">
       <img [src]="currentCharacter.image">
     </div>
     <div class="tip_info">
       <div class="tip_characterName">
-        {{currentCharacter.name}}
+        <button mat-raised-button color="warn"
+                (click)="getAnotherCharacterTip(currentCharacter.name)">
+                {{currentCharacter.name}}
+        </button>
       </div>
       <div class="tip_characterTip">
         <span>{{currentCharacter.tip}}</span>
       </div>
     </div>
   </div>
-</ng-container>
