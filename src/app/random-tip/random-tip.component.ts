@@ -27,8 +27,4 @@ export class RandomTipComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  test2(){
-    console.log(this.currentCharacter);
-  }
-
 }
