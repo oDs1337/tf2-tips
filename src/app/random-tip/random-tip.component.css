@@ -20,6 +20,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
 }
 .tip_characterTip{
   width: 520px;
