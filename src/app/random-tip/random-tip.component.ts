@@ -1,6 +1,5 @@
 import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
-import { AppState } from '../AppState';
 import { Store } from '@ngrx/store';
 import { characterNames } from '../database/characterNames';
 import { Character } from '../character';
@@ -29,14 +28,17 @@ export class RandomTipComponent implements OnInit {
   }
 
   getRandomTip(): void{
-    const min = Math.ceil(0);
-    const max = Math.floor(characterNames.length);
-    const randomNumber = Math.floor(Math.random() * (max - min + 1) + min);
-    this.store.dispatch({ type: characterNames[randomNumber] });
+    this.store.dispatch({ type: characterNames[this.generateRandomNumber()] });
   }
 
-  getAnotherCharacterTip(name: string){
-    this.store.dispatch({ type: name });
+  generateRandomNumber(): number{
+    const min = Math.ceil(0);
+    const max = Math.floor(characterNames.length);
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  }
+
+  getAnotherCharacterTip(){
+    this.store.dispatch({ type: this.currentCharacter.name });
   }
 
 }
