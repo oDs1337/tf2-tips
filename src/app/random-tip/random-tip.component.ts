@@ -13,13 +13,14 @@ import { characterNames } from '../database/characterNames';
 })
 export class RandomTipComponent implements OnInit {
 
-  tip$?: Observable<string>;
+  randomlyGeneratedTip?: string;
 
   currentCharacter?: Character;
 
   constructor(private store: Store<{character: CharacterState}>) {
     this.store.select(state => state.character).subscribe((character) => {
       this.currentCharacter = character;
+      this.randomlyGeneratedTip = character.tips[this.generateRandomNumber(character.tips.length)];
     })
    }
 
@@ -32,7 +33,7 @@ export class RandomTipComponent implements OnInit {
   }
 
   generateRandomNumber(arrayMaxLength: number): number{
-    return Math.floor(Math.random() * (arrayMaxLength + 1));
+    return Math.floor(Math.random() * (arrayMaxLength));
   }
 
   getAnotherCharacterTip(): void{
