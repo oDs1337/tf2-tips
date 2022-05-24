@@ -12,6 +12,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { RandomTipComponent } from './random-tip/random-tip.component';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { RandomTipComponent } from './random-tip/random-tip.component';
     MatIconModule,
     MatButtonModule,
     StoreModule.forRoot({
-      tip: tipsReducer })
+      character: tipsReducer }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: false })
   ],
   providers: [],
   bootstrap: [AppComponent]

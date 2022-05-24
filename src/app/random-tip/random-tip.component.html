@@ -1,17 +1,17 @@
 
   <div class="tip">
     <div class="tip_classImage">
-      <img [src]="currentCharacter.image">
+      <img [src]="currentCharacter?.image">
     </div>
     <div class="tip_info">
       <div class="tip_characterName">
         <button mat-raised-button color="warn"
                 (click)="getAnotherCharacterTip()">
-                Another tip to: {{currentCharacter.name}}
+                Another tip to: {{currentCharacter?.name}}
         </button>
       </div>
       <div class="tip_characterTip">
-        <span>{{currentCharacter.tip}}</span>
+        <span>{{currentCharacter && currentCharacter.tips && currentCharacter.tips[generateRandomNumber(currentCharacter.tips.length)]}}</span>
       </div>
     </div>
   </div>

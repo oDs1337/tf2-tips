@@ -1,6 +1,5 @@
-import { Observable } from 'rxjs';
+import { CharacterState } from './../tips.reducer';
 import { Component, OnInit } from '@angular/core';
-import { AppState } from '../AppState';
 import { Store } from '@ngrx/store';
 
 @Component({
@@ -10,7 +9,7 @@ import { Store } from '@ngrx/store';
 })
 export class ToolBarComponent implements OnInit {
 
-  constructor(private store: Store<AppState>) {}
+  constructor(private store: Store<CharacterState>) {}
 
   ngOnInit(): void {
   }

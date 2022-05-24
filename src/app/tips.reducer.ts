@@ -10,41 +10,39 @@ import { scoutTips } from './database/scout-mock';
 import { Action } from "@ngrx/store";
 import { Character } from './character';
 
-export function tipsReducer(state: Character = { name: '', tip: '', image: '' }, action: Action){
+export type CharacterState = Character;
 
-  function generateRandomNumber(arrayLength: number): number{
-    const min = Math.ceil(0);
-    const max = Math.floor(arrayLength);
-    return Math.floor(Math.random() * (max - min)) + min;
-  }
+const initialState: CharacterState = { name: '', tips: [], image: '' };
+
+export function tipsReducer(state: CharacterState = initialState, action: Action){
 
   switch (action.type) {
     case 'Scout':
-      return state = { name: 'Scout', tip: scoutTips[generateRandomNumber(scoutTips.length)], image: 'https://wiki.teamfortress.com/w/images/1/13/Icon_scout.jpg' }
+      return {...state, name: 'Scout', tips: scoutTips, image: 'https://wiki.teamfortress.com/w/images/1/13/Icon_scout.jpg' };
 
     case 'Soldier':
-      return state = { name: 'Soldier', tip: soldierTips[generateRandomNumber(soldierTips.length)], image: 'https://wiki.teamfortress.com/w/images/c/c1/Icon_soldier.jpg' }
+      return {...state, name: 'Soldier', tips: soldierTips, image: 'https://wiki.teamfortress.com/w/images/c/c1/Icon_soldier.jpg' };
 
     case 'Pyro':
-      return state = { name: 'Pyro', tip: pyroTips[generateRandomNumber(pyroTips.length)], image: 'https://wiki.teamfortress.com/w/images/1/13/Icon_pyro.jpg' }
+      return {...state, name: 'Pyro', tips: pyroTips, image: 'https://wiki.teamfortress.com/w/images/1/13/Icon_pyro.jpg' };
 
     case 'Demoman':
-      return state = { name: 'Demoman', tip: demomanTips[generateRandomNumber(demomanTips.length)], image: 'https://wiki.teamfortress.com/w/images/c/c0/Icon_demoman.jpg' }
+      return {...state, name: 'Demoman', tips: demomanTips, image: 'https://wiki.teamfortress.com/w/images/c/c0/Icon_demoman.jpg' };
 
     case 'Heavy':
-      return state = { name: 'Heavy', tip: heavyTips[generateRandomNumber(heavyTips.length)], image: 'https://wiki.teamfortress.com/w/images/8/8e/Icon_heavy.jpg' }
+      return {...state, name: 'Heavy', tips: heavyTips, image: 'https://wiki.teamfortress.com/w/images/8/8e/Icon_heavy.jpg' };
 
     case 'Engineer':
-      return state = { name: 'Engineer', tip: engineerTips[generateRandomNumber(engineerTips.length)], image: 'https://wiki.teamfortress.com/w/images/b/bc/Icon_engineer.jpg' }
+      return {...state, name: 'Engineer', tips: engineerTips, image: 'https://wiki.teamfortress.com/w/images/b/bc/Icon_engineer.jpg' };
 
     case 'Medic':
-      return state = { name: 'Medic', tip: medicTips[generateRandomNumber(medicTips.length)], image: 'https://wiki.teamfortress.com/w/images/f/f5/Icon_medic.jpg' }
+      return {...state, name: 'Medic', tips: medicTips, image: 'https://wiki.teamfortress.com/w/images/f/f5/Icon_medic.jpg' };
 
     case 'Sniper':
-      return state = { name: 'Sniper', tip: sniperTips[generateRandomNumber(sniperTips.length)], image: 'https://wiki.teamfortress.com/w/images/a/ac/Icon_sniper.jpg' }
+      return {...state, name: 'Sniper', tips: sniperTips, image: 'https://wiki.teamfortress.com/w/images/a/ac/Icon_sniper.jpg' };
 
     case 'Spy':
-      return state = { name: 'Spy', tip: spyTips[generateRandomNumber(spyTips.length)], image: 'https://wiki.teamfortress.com/w/images/9/9b/Icon_spy.jpg' }
+      return {...state, name: 'Spy', tips: spyTips, image: 'https://wiki.teamfortress.com/w/images/9/9b/Icon_spy.jpg' };
 
     default:
       return state;

@@ -1,8 +1,10 @@
+import { Character } from './../character';
+import { CharacterState } from './../tips.reducer';
 import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { characterNames } from '../database/characterNames';
-import { Character } from '../character';
+
 
 @Component({
   selector: 'app-random-tip',
@@ -11,34 +13,32 @@ import { Character } from '../character';
 })
 export class RandomTipComponent implements OnInit {
 
-  test=false;
-
   tip$?: Observable<string>;
 
-  currentCharacter?: any
+  currentCharacter?: Character;
 
-  constructor(private store: Store<Character>) {
-    this.store.select('tip').subscribe(tip => {
-      this.currentCharacter = tip;
+  constructor(private store: Store<{character: CharacterState}>) {
+    this.store.select(state => state.character).subscribe((character) => {
+      this.currentCharacter = character;
     })
    }
 
   ngOnInit(): void {
-    this.getRandomTip();
+    this.getRandomCharacter();
   }
 
-  getRandomTip(): void{
-    this.store.dispatch({ type: characterNames[this.generateRandomNumber()] });
+  getRandomCharacter(): void{
+    this.store.dispatch({ type: characterNames[this.generateRandomNumber(characterNames.length)] });
   }
 
-  generateRandomNumber(): number{
-    const min = Math.ceil(0);
-    const max = Math.floor(characterNames.length);
-    return Math.floor(Math.random() * (max - min + 1) + min);
+  generateRandomNumber(arrayMaxLength: number): number{
+    return Math.floor(Math.random() * (arrayMaxLength + 1));
   }
 
-  getAnotherCharacterTip(){
-    this.store.dispatch({ type: this.currentCharacter.name });
+  getAnotherCharacterTip(): void{
+    if(this.currentCharacter?.name) {
+      this.store.dispatch({ type: this.currentCharacter.name });
+    };
   }
 
 }

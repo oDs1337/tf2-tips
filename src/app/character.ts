@@ -1,5 +1,5 @@
 export interface Character {
   name: string,
-  tip: string,
+  tips: string[],
   image: string,
 }
