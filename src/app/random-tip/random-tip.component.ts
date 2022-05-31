@@ -1,5 +1,7 @@
+import { generateScoutTip } from './../tips.actions';
+import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { Character } from './../character';
-import { CharacterState } from './../tips.reducer';
+import { CharacterState, tipReducer } from './../tips.reducer';
 import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
@@ -25,7 +27,8 @@ export class RandomTipComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.getRandomCharacter();
+    //this.getRandomCharacter();
+    this.test();
   }
 
   getRandomCharacter(): void{
@@ -40,6 +43,10 @@ export class RandomTipComponent implements OnInit {
     if(this.currentCharacter?.name) {
       this.store.dispatch({ type: this.currentCharacter.name });
     };
+  }
+
+  test(): void{
+
   }
 
 }

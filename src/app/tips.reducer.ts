@@ -1,3 +1,4 @@
+import { generateScoutTip } from './tips.actions';
 import { spyTips } from './database/spy-mock';
 import { sniperTips } from './database/sniper-mock';
 import { medicTips } from './database/medic-mock';
@@ -7,12 +8,17 @@ import { demomanTips } from './database/demoman-mock';
 import { pyroTips } from './database/pyro-mock';
 import { soldierTips } from './database/soldier-mock';
 import { scoutTips } from './database/scout-mock';
-import { Action } from "@ngrx/store";
+import { Action, createReducer, on } from "@ngrx/store";
 import { Character } from './character';
 
 export type CharacterState = Character;
 
 const initialState: CharacterState = { name: '', tips: [], image: '' };
+
+export const tipReducer = createReducer(
+  initialState,
+  on(generateScoutTip, (state: CharacterState) => ({ ...state, name: 'Scout', tips: scoutTips, image: 'https://wiki.teamfortress.com/w/images/1/13/Icon_scout.jpg' })),
+)
 
 export function tipsReducer(state: CharacterState = initialState, action: Action){
 
