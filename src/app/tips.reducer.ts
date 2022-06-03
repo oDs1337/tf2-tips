@@ -22,6 +22,11 @@ export const tipReducer = createReducer(
 
 export function tipsReducer(state: CharacterState = initialState, action: Action){
 
+  // return createReducer(
+  //   initialState,
+  //   on('Scout', {...state, name: 'Scout', tips: scoutTips, image: 'https://wiki.teamfortress.com/w/images/1/13/Icon_scout.jpg' }),
+  // )
+
   switch (action.type) {
     case 'Scout':
       return {...state, name: 'Scout', tips: scoutTips, image: 'https://wiki.teamfortress.com/w/images/1/13/Icon_scout.jpg' };
