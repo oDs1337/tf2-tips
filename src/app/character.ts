@@ -1,5 +1,6 @@
+import { characterNames } from './database/characterNames';
 export interface Character {
-  name: string,
+  name: characterNames | null,
   tips: string[],
   image: string,
 }

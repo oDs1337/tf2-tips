@@ -1,6 +1,8 @@
+import { generateTip } from './../tips.actions';
 import { CharacterState } from './../tips.reducer';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { characterNames, characters } from '../database/characterNames';
 
 @Component({
   selector: 'app-tool-bar',
@@ -9,38 +11,15 @@ import { Store } from '@ngrx/store';
 })
 export class ToolBarComponent implements OnInit {
 
+  characterNames = Object.values(characters);
+
   constructor(private store: Store<CharacterState>) {}
 
   ngOnInit(): void {
   }
 
-  scoutTip(): void{
-    this.store.dispatch({ type: 'Scout'});
+  dispatchTip(character: characterNames): void{
+    this.store.dispatch(generateTip({name: character}))
   }
-  soldierTip(): void{
-    this.store.dispatch({ type: 'Soldier'});
-  }
-  pyroTip(): void{
-    this.store.dispatch({ type: 'Pyro'});
-  }
-  demomanTip(): void{
-    this.store.dispatch({ type: 'Demoman'});
-  }
-  heavyTip(): void{
-    this.store.dispatch({ type: 'Heavy'});
-  }
-  engineerTip(): void{
-    this.store.dispatch({ type: 'Engineer'});
-  }
-  medicTip(): void{
-    this.store.dispatch({ type: 'Medic'});
-  }
-  sniperTip(): void{
-    this.store.dispatch({ type: 'Sniper'});
-  }
-  spyTip(): void{
-    this.store.dispatch({ type: 'Spy'});
-  }
-
 
 }
